@@ -1,32 +1,41 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchData, setDataLoadedState, setCurrentPage } from '../../redux/ducks/pokemon-table';
+import { fetchData } from '../../redux/ducks/pokemon-table';
 import TableItem from './TableItem';
 import TablePagination from './TablePagination';
+import RefreshButton from '../../components/RefreshButton';
+import Loader from '../../components/Loader';
 import { CARDS_PER_PAGE } from '../../utils/constants';
+import { getRandomPageNumber } from '../../utils/utils';
 import './PokemonTable.scss';
 
 const PokemonTable = (props) => {
   const {
-    isDataLoaded, data, currentPage, fetchData,
+    data, currentPage, fetchData,
   } = props;
+
+  const refreshButtonHandler = () => {
+    console.log('table');
+    console.log(getRandomPageNumber());
+  };
 
   const renderTableItems = () => {
     let startIndex = currentPage - 1;
-    if (startIndex > 0) {
-      startIndex *= CARDS_PER_PAGE;
-    }
+    if (startIndex > 0) startIndex *= CARDS_PER_PAGE;
     const endIndex = startIndex + CARDS_PER_PAGE;
     const items = [];
     for (startIndex; startIndex < endIndex; startIndex += 1) {
-      const { id, imageUrl, name } = data[startIndex];
-      items.push(
-        <TableItem
-          id={id}
-          imageUrl={imageUrl}
-          key={name}
-        />,
-      );
+      if (data[startIndex]) {
+        const { id, imageUrl, name } = data[startIndex];
+        items.push(
+          <TableItem
+            id={id}
+            imageUrl={imageUrl}
+            name={name}
+            key={name}
+          />,
+        );
+      } else break;
     }
     return items;
   };
@@ -37,26 +46,35 @@ const PokemonTable = (props) => {
 
   return (
     <div className="pokemon-table">
-      {isDataLoaded ? (
+      {data ? (
         <>
-          {renderTableItems()}
+          <div className="pokemon-table__refresh-button">
+            <RefreshButton handler={refreshButtonHandler}>
+              Refresh Data
+            </RefreshButton>
+          </div>
+          <div className="pokemon-table__container">
+            {renderTableItems()}
+          </div>
           <TablePagination />
         </>
-      ) : <h1>Loading</h1> }
+      ) : (
+        <div className="pokemon-table__loader">
+          <Loader />
+        </div>
+      ) }
     </div>
   );
 };
 
 export default connect((state) => {
-  const { isDataLoaded, data, currentPage } = state.pokemonReducer;
+  const { data, currentPage } = state.pokemonTableReducer;
   return {
-    isDataLoaded,
     data,
     currentPage,
   };
 }, (dispatch) => (
   {
-    setDataLoadedState: () => dispatch(setDataLoadedState),
     fetchData: (endPoint) => dispatch(fetchData(endPoint)),
   }
 ))(PokemonTable);

@@ -1,5 +1,20 @@
 .pokemon-table {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+
+    &__loader {
+        padding-top: 120px;
+        margin: 0 auto;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 20px; 
+    }
+
+    &__refresh-button {
+        max-width: 150px;
+        height: 30px;
+        margin: 0 auto;
+    }
 }

@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import pokemonReducer from './ducks/pokemon-table';
+import pokemonTableReducer from './ducks/pokemon-table';
+import pokemonInfoReducer from './ducks/pokemon-info';
 
 const rootReducer = combineReducers({
-  pokemonReducer,
+  pokemonTableReducer,
+  pokemonInfoReducer,
 });
 
 export default rootReducer;

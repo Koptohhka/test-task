@@ -23,6 +23,11 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "global-require": "off",
+        "react/destructuring-assignment": "off",
+        "jsx-a11y/no-noninteractive-element-to-interactive-role": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "no-shadow": "off",
         "react/prop-types": "off"
     }
 };

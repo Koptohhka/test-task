@@ -4,4 +4,6 @@ const calculatePaginationValue = (dataLength) => {
   return numberOfPages;
 };
 
-export { calculatePaginationValue };
+const getRandomPageNumber = () => Math.floor(Math.random() * 123);
+
+export { calculatePaginationValue, getRandomPageNumber };

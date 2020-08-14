@@ -1,8 +1,10 @@
 .app {
+  padding-top: 15px;
+
   &__wrapper {
     width: 100%;
-    max-width: 1060px;
-    padding: 0 20px;
+    max-width: 1000px;
     margin: 0 auto;
+    padding: 0 20px;
   }
 }
