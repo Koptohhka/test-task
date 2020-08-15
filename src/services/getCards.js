@@ -3,11 +3,7 @@ import { API_URL } from '../utils/constants';
 
 const getCards = async (endPoint) => {
   try {
-    const data = await axios.get((API_URL + endPoint), {
-      headers: {
-        'Page-size': '50',
-      },
-    });
+    const data = await axios.get((API_URL + endPoint));
     return data;
   } catch (e) {
     return false;

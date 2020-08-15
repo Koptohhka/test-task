@@ -45,10 +45,10 @@ const PokemonTable = (props) => {
           <div className="pokemon-table__container">
             {renderTableItems()}
           </div>
+          <TablePagination />
           <div className="pokemon-table__refresh-button">
             <RefreshButton />
           </div>
-          <TablePagination />
         </>
       ) : (
         <div className="pokemon-table__loader">

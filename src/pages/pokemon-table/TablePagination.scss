@@ -5,6 +5,7 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+    margin-bottom: 9px;
     @include section-border;
 
     &__container {

@@ -16,7 +16,7 @@ const PokemonInfo = (props) => {
   const renderPokemonInfo = () => {
     const {
       rarity,
-      imageUrl,
+      imageUrlHiRes,
       name,
       subtype,
       supertype,
@@ -25,39 +25,50 @@ const PokemonInfo = (props) => {
       attacks,
     } = activePokemonData;
     return (
-      <div className="pokemon-info__container">
+      <>
         <div className="pokemon-info__button">
           <RefreshButton />
         </div>
-        <img
-          onLoad={onLoadImageHanlder}
-          src={isImageLoaded ? imageUrl : require('../../assets/images/pokeball.png')}
-          alt={name}
-        />
-        <div className="pokemon-info__info-container">
-          <div className="info-container__flex-wrapper">
-            <h3 className="pokemon-info__name">
-              {`${name} (${supertype}-${subtype})`}
-            </h3>
-            <p className="pokemon-info__hp">
-              {`hp ${hp}`}
-            </p>
-          </div>
-          {attacks ? (
-            <div className="pokemon-info__attacs">
-              {attacks.map((it) => <AttackItem key={it.name} info={it} />)}
+        <div className="pokemon-info__container">
+          <img
+            className="pokemon-info__image"
+            onLoad={onLoadImageHanlder}
+            src={isImageLoaded ? imageUrlHiRes : require('../../assets/images/pokeball.png')}
+            alt={name}
+          />
+          <div className="pokemon-info__wrapper">
+            <div className="pokemon-info__info-container">
+              <div className="info-container__flex-wrapper">
+                <h3 className="pokemon-info__name">
+                  {`${name} (${supertype}-${subtype})`}
+                </h3>
+                <p className="pokemon-info__hp">
+                  <span>hp</span>
+                  {' '}
+                  {hp}
+                </p>
+              </div>
+              {attacks ? (
+                <div className="pokemon-info__attacs">
+                  {attacks.map((it) => <AttackItem key={it.name} info={it} />)}
+                </div>
+              ) : null}
+              <div className="pokemon-info__stats">
+                <p className="pokemon-info__rarity">
+                  <span>
+                    rarity:
+                  </span>
+                  {' '}
+                  {rarity}
+                </p>
+                <p className="pokemon-info__set">
+                  {`set ${set}`}
+                </p>
+              </div>
             </div>
-          ) : null}
-          <div className="pokemon-info__stats">
-            <p className="pokemon-info__rarity">
-              {`rarity ${rarity}`}
-            </p>
-            <p className="pokemon-info__set">
-              {`set ${set}`}
-            </p>
           </div>
         </div>
-      </div>
+      </>
     );
   };
 
