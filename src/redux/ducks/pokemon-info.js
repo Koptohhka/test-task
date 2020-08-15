@@ -1,3 +1,4 @@
+import { setErrorState } from './app';
 import getCards from '../../services/getCards';
 
 const SET_ACTIVE_POKEMON_DATA = 'pokemon-info/SET_ACTIVE_POKEMON_DATA';
@@ -9,10 +10,12 @@ const initialState = {
 const fetchPokemonData = (id) => (
   async (dispatch) => {
     const data = await getCards(`/v1/cards/${id}`);
-    dispatch({
-      type: SET_ACTIVE_POKEMON_DATA,
-      activePokemonData: data.data.card,
-    });
+    if (data) {
+      dispatch({
+        type: SET_ACTIVE_POKEMON_DATA,
+        activePokemonData: data.data.card,
+      });
+    } else dispatch(setErrorState());
   }
 );
 

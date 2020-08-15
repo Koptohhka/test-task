@@ -1,4 +1,5 @@
 import getCards from '../../services/getCards';
+import { setErrorState } from './app';
 
 const SET_DATA = 'pokemon-table/SET_DATA';
 const SET_CURRENT_PAGE = 'pokemon-table/SET_CURRENT_PAGE';
@@ -28,12 +29,16 @@ const removeData = () => ({
 const fetchData = (endPoint) => (
   async (dispatch) => {
     const data = await getCards(endPoint);
-    dispatch(
-      {
-        type: SET_DATA,
-        data: data.data.cards,
-      },
-    );
+    if (data) {
+      dispatch(
+        {
+          type: SET_DATA,
+          data: data.data.cards,
+        },
+      );
+    } else {
+      dispatch(setErrorState());
+    }
   }
 );
 

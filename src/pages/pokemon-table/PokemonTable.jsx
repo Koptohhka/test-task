@@ -6,18 +6,12 @@ import TablePagination from './TablePagination';
 import RefreshButton from '../../components/RefreshButton';
 import Loader from '../../components/Loader';
 import { CARDS_PER_PAGE } from '../../utils/constants';
-import { getRandomPageNumber } from '../../utils/utils';
 import './PokemonTable.scss';
 
 const PokemonTable = (props) => {
   const {
-    data, currentPage, fetchData, removeData,
+    data, currentPage, fetchData,
   } = props;
-
-  const refreshButtonHandler = () => {
-    removeData();
-    fetchData(`v1/cards?page=${getRandomPageNumber()}`);
-  };
 
   const renderTableItems = () => {
     let startIndex = currentPage - 1;
@@ -49,9 +43,7 @@ const PokemonTable = (props) => {
       {data ? (
         <>
           <div className="pokemon-table__refresh-button">
-            <RefreshButton handler={refreshButtonHandler}>
-              Refresh Data
-            </RefreshButton>
+            <RefreshButton />
           </div>
           <div className="pokemon-table__container">
             {renderTableItems()}

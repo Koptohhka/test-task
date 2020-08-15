@@ -2,12 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import AttackItem from './AttacItem';
 import Loader from '../../components/Loader';
+import RefreshButton from '../../components/RefreshButton';
 import './PokemonInfo.scss';
 
 const PokemonInfo = (props) => {
   const { activePokemonData } = props;
 
-  const renderPokemon = () => {
+  const renderPokemonInfo = () => {
     const {
       rarity,
       imageUrl,
@@ -20,6 +21,7 @@ const PokemonInfo = (props) => {
     } = activePokemonData;
     return (
       <div className="pokemon-info__container">
+        <RefreshButton />
         <img src={imageUrl} alt={name} />
         <div className="pokemon-info__info-container">
           <div className="info-container__flex-wrapper">
@@ -37,12 +39,10 @@ const PokemonInfo = (props) => {
           ) : null}
           <div className="pokemon-info__stats">
             <p className="pokemon-info__rarity">
-              rarity
-              {rarity}
+              {`rarity ${rarity}`}
             </p>
             <p className="pokemon-info__set">
-              set
-              {set}
+              {`set ${set}`}
             </p>
           </div>
         </div>
@@ -52,7 +52,7 @@ const PokemonInfo = (props) => {
 
   return (
     <div className="pokemon-info">
-      {activePokemonData ? renderPokemon() : (
+      {activePokemonData ? renderPokemonInfo() : (
         <div className="pokemon-info__loader">
           <Loader />
         </div>

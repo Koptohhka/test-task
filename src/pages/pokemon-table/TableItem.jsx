@@ -8,7 +8,8 @@ const TableItem = (props) => {
   const [isLoaded, setLoadedState] = useState(false);
   const {
     name,
-    imageUrl, id,
+    imageUrl,
+    id,
     fetchPokemonData,
     removeActivePokemonData,
   } = props;
