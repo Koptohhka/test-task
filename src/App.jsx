@@ -7,9 +7,9 @@ import './App.scss';
 const App = () => (
   <div className="app">
     <div className="app__wrapper">
-      <Route exact path="/" component={PokemonTable} />
+      <Route exact path="/pokemon-info" component={PokemonTable} />
       <Route path="/pokemon-info/:id" component={PokemonInfo} />
-      <Redirect to="/" />
+      <Redirect to="/pokemon-info" />
     </div>
   </div>
 );

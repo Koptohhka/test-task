@@ -8,7 +8,7 @@ const getCards = async (endPoint) => {
         'Page-size': '50',
       },
     });
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (e) {
     return false;

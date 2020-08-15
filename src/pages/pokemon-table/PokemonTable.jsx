@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchData } from '../../redux/ducks/pokemon-table';
+import { fetchData, removeData } from '../../redux/ducks/pokemon-table';
 import TableItem from './TableItem';
 import TablePagination from './TablePagination';
 import RefreshButton from '../../components/RefreshButton';
@@ -11,12 +11,12 @@ import './PokemonTable.scss';
 
 const PokemonTable = (props) => {
   const {
-    data, currentPage, fetchData,
+    data, currentPage, fetchData, removeData,
   } = props;
 
   const refreshButtonHandler = () => {
-    console.log('table');
-    console.log(getRandomPageNumber());
+    removeData();
+    fetchData(`v1/cards?page=${getRandomPageNumber()}`);
   };
 
   const renderTableItems = () => {
@@ -32,7 +32,7 @@ const PokemonTable = (props) => {
             id={id}
             imageUrl={imageUrl}
             name={name}
-            key={name}
+            key={id}
           />,
         );
       } else break;
@@ -41,7 +41,7 @@ const PokemonTable = (props) => {
   };
 
   useEffect(() => {
-    fetchData('v1/cards?page=1');
+    if (!data) fetchData('v1/cards?page=1');
   }, []);
 
   return (
@@ -75,6 +75,7 @@ export default connect((state) => {
   };
 }, (dispatch) => (
   {
+    removeData: () => dispatch(removeData()),
     fetchData: (endPoint) => dispatch(fetchData(endPoint)),
   }
 ))(PokemonTable);

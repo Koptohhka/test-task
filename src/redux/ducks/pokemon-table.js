@@ -20,6 +20,11 @@ const setCurrentPage = (value) => ({
   currentPage: value,
 });
 
+const removeData = () => ({
+  type: SET_DATA,
+  data: null,
+});
+
 const fetchData = (endPoint) => (
   async (dispatch) => {
     const data = await getCards(endPoint);
@@ -43,6 +48,8 @@ const pokemonTableReducer = (state = initialState, action) => {
       return {
         ...state,
         data: action.data,
+        currentPage: 1,
+        paginationIndex: 0,
       };
     case SET_CURRENT_PAGE:
       return {
@@ -55,4 +62,6 @@ const pokemonTableReducer = (state = initialState, action) => {
 };
 
 export default pokemonTableReducer;
-export { fetchData, setCurrentPage, setPaginationIndex };
+export {
+  fetchData, setCurrentPage, setPaginationIndex, removeData,
+};
