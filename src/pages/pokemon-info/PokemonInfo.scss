@@ -40,10 +40,11 @@
         margin: 0 10px 20px;
 
         .info-container {
-            &__flex-wrapper{
+            &__flex-wrapper {
                 display: flex;
                 justify-content: space-between;
                 margin-bottom: 10px;
+                flex-wrap: wrap;
             }
         }
     }
@@ -60,6 +61,35 @@
     }
 
     &__attacs {
+        padding: 4px;
         margin-bottom: 10px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+    }
+
+    &__attacs span {
+        font-weight: bold;
+    }
+
+    @media(max-width: 800px) {
+        &__image {
+            width: 250px;
+            height: 450px;
+        }
+
+        @media(max-width: 745px) {
+            &__image {
+                width: 230px;
+                height: 400px;
+            }
+
+            &__info-container {
+                font-size: 16px;
+            }
+        }
     }
 }

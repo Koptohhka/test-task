@@ -50,6 +50,7 @@ const PokemonInfo = (props) => {
               </div>
               {attacks ? (
                 <div className="pokemon-info__attacs">
+                  <span>Attacks:</span>
                   {attacks.map((it) => <AttackItem key={it.name} info={it} />)}
                 </div>
               ) : null}
