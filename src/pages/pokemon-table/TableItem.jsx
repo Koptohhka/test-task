@@ -31,10 +31,13 @@ const TableItem = (props) => {
       onClick={onClickCardHanlder}
       className="table-item"
     >
+      <div className="table-item__decoration">
+        <p className="decoration__caption">Watch info</p>
+      </div>
       <img
         onLoad={onLoadImageHandler}
         className="table-item__image"
-        src={isLoaded ? imageUrl : (require('../../assets/images/pokeball.jpg'))}
+        src={isLoaded ? imageUrl : (require('../../assets/images/pokeball.png'))}
         alt={name}
       />
     </div>

@@ -1,3 +1,5 @@
+@import '../../css/mixins';
+
 .pokemon-table {
 
     &__loader {
@@ -9,12 +11,26 @@
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
-        padding: 20px; 
+        padding: 20px;
+        margin-bottom: 10px;
+        @include section-border;
     }
 
     &__refresh-button {
         max-width: 150px;
         height: 30px;
-        margin: 0 auto;
+        margin: 0 auto 10px;
+    }
+
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+
+    @media (max-width: 983px) {
+        &__container {
+            justify-content: center;
+        }
     }
 }

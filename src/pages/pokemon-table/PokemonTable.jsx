@@ -42,11 +42,11 @@ const PokemonTable = (props) => {
     <div className="pokemon-table">
       {data ? (
         <>
-          <div className="pokemon-table__refresh-button">
-            <RefreshButton />
-          </div>
           <div className="pokemon-table__container">
             {renderTableItems()}
+          </div>
+          <div className="pokemon-table__refresh-button">
+            <RefreshButton />
           </div>
           <TablePagination />
         </>

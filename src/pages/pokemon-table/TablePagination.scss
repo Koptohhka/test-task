@@ -1,14 +1,11 @@
+@import '../../css/mixins';
+
 .table-pagination {
     width: 100%;
-    border: 1px solid gray;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
     -moz-user-select: none;
     -webkit-user-select: none;
     user-select: none;
+    @include section-border;
 
     &__container {
         list-style: none;
@@ -51,5 +48,16 @@
         border: none;
         background-color: #4CAF50;
         color: white;
+    }
+
+    @media (max-width: 370px) {
+        &__container {
+            max-width: 310px;
+        }
+
+        &__item {
+            padding: 5px 8px;
+            margin: 0 2px;
+        }
     }
 }

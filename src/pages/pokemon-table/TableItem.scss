@@ -1,11 +1,70 @@
+@import '../../css/mixins';
+
 .table-item {
     cursor: pointer;
     width: 170px;
     height: 240px;
     margin: 5px;
+    position: relative;
+    @include shadow;
+    @include card-radius;
+
+    &__decoration {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        // opacity: 0;
+        background-color: rgba(0, 0, 0, 0.39);
+
+        .decoration__caption {
+            font-size: 17px;
+            font-weight: bold;
+            color: white;
+        }
+
+        border-radius: inherit;
+        -webkit-border-radius: inherit;
+        -moz-border-radius: inherit;
+        -ms-border-radius: inherit;
+        -o-border-radius: inherit;
+        transition: 0.2s;
+        -webkit-transition: 0.2s;
+        -moz-transition: 0.2s;
+        -ms-transition: 0.2s;
+        -o-transition: 0.2s;
+        transform: scaleY(0);
+        -webkit-transform: scaleY(0);
+        -moz-transform: scaleY(0);
+        -ms-transform: scaleY(0);
+        -o-transform: scaleY(0);
+        transform-origin: bottom;
+    }
+
 
     &__image {
         width: 100%;
         height: 100%;
+        border-radius: inherit;
+        -webkit-border-radius: inherit;
+        -moz-border-radius: inherit;
+        -ms-border-radius: inherit;
+        -o-border-radius: inherit;
+    }
+}
+
+.table-item:hover .table-item__decoration {
+    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+    -moz-transform: scaleY(1);
+    -ms-transform: scaleY(1);
+    -o-transform: scaleY(1);
+}
+
+@media (max-width: 983px) {
+    .table-item {
+        margin: 10px
     }
 }
