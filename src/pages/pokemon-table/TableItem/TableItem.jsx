@@ -17,7 +17,7 @@ const TableItem = (props) => {
   const onClickCardHanlder = () => {
     removeActivePokemonData();
     fetchPokemonData(id);
-    props.history.push(`/pokemon-info/${name}`);
+    props.history.push(`/${name}`);
   };
 
   const onLoadImageHandler = () => {
