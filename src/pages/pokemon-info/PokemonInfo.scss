@@ -25,6 +25,7 @@
     &__container {
         display: flex;
         justify-content: space-around;
+        margin-bottom: 20px;
     }
 
     &__image {
@@ -38,6 +39,7 @@
     &__info-container {
         font-size: 18px;
         margin: 0 10px 20px;
+        width: 100%;
 
         .info-container {
             &__flex-wrapper {
@@ -53,9 +55,12 @@
         color: rgb(226, 71, 71);
         font-size: 20px;
         text-transform: uppercase;
+        margin-left: 5px;
     }
 
-    &__rarity span {
+    &__rarity span,
+    &__attacs span,
+    &__set span {
         font-weight: bold;
         text-transform: capitalize;
     }
@@ -69,15 +74,6 @@
         -moz-border-radius: 5px;
         -ms-border-radius: 5px;
         -o-border-radius: 5px;
-    }
-
-    &__attacs span {
-        font-weight: bold;
-    }
-
-    &__set span {
-        text-transform: capitalize;
-        font-weight: bold;
     }
 
     @media(max-width: 800px) {

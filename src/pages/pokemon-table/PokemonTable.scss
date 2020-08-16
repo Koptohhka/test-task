@@ -1,6 +1,9 @@
 @import '../../css/mixins';
 
 .pokemon-table {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
 
     &__loader {
         padding-top: 120px;

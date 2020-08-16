@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import AttackItem from './AttackItem/AttackItem';
+import ResistanceItem from './ResistanceItem/ResistanceItem';
 import Loader from '../../components/Loader/Loader';
 import RefreshButton from '../../components/RefreshButton/RefreshButton';
 import './PokemonInfo.scss';
@@ -23,6 +24,7 @@ const PokemonInfo = (props) => {
       hp,
       set,
       attacks,
+      resistances,
     } = activePokemonData;
     return (
       <>
@@ -45,7 +47,7 @@ const PokemonInfo = (props) => {
                 <p className="pokemon-info__hp">
                   <span>hp</span>
                   {' '}
-                  {hp}
+                  {hp || 'none'}
                 </p>
               </div>
               {attacks ? (
@@ -62,6 +64,12 @@ const PokemonInfo = (props) => {
                   {' '}
                   {rarity}
                 </p>
+                {resistances ? resistances.map((it) => (
+                  <ResistanceItem
+                    key={it.type}
+                    resistance={it}
+                  />
+                )) : null}
                 <p className="pokemon-info__set">
                   <span>set: </span>
                   {set}

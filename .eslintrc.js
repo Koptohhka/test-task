@@ -23,6 +23,7 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "import/prefer-default-export": "off",
         "import/no-extraneous-dependencies": "off",
         "global-require": "off",
         "react/destructuring-assignment": "off",

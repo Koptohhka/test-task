@@ -1,9 +1,5 @@
-const calculatePaginationValue = (dataLength) => {
-  const CARDS_PER_PAGE = 10;
-  const numberOfPages = dataLength / CARDS_PER_PAGE;
-  return numberOfPages;
-};
+import { TOTAL_NUMBER_OF_API_PAGES } from './constants';
 
-const getRandomPageNumber = () => Math.floor(Math.random() * 124);
+const getRandomPageNumber = () => Math.floor(Math.random() * TOTAL_NUMBER_OF_API_PAGES);
 
-export { calculatePaginationValue, getRandomPageNumber };
+export { getRandomPageNumber };
