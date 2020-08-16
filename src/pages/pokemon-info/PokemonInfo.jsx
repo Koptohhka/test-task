@@ -63,7 +63,8 @@ const PokemonInfo = (props) => {
                   {rarity}
                 </p>
                 <p className="pokemon-info__set">
-                  {`set ${set}`}
+                  <span>set: </span>
+                  {set}
                 </p>
               </div>
             </div>
