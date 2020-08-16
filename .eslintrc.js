@@ -20,9 +20,10 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react", "react-hooks"
     ],
     "rules": {
+        "react-hooks/exhaustive-deps": "off",
         "import/prefer-default-export": "off",
         "import/no-extraneous-dependencies": "off",
         "global-require": "off",
