@@ -13,7 +13,7 @@ const RefreshButton = (props) => {
     removeActivePokemonData();
     removeData();
     await fetchData(`v1/cards?page=${getRandomPageNumber()}`);
-    props.history.push('/pokemon-info');
+    props.history.push('/');
   };
 
   return (

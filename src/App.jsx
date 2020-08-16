@@ -11,9 +11,9 @@ const App = (props) => (
     <div className="app__wrapper">
       {props.errorStatus ? <ErrorScreen /> : (
         <>
-          <Route exact path="/pokemon-info" component={PokemonTable} />
-          <Route path="/pokemon-info/:id" component={PokemonInfo} />
-          <Redirect to="/pokemon-info" />
+          <Route exact path="/" component={PokemonTable} />
+          <Route path="/:id" component={PokemonInfo} />
+          <Redirect to="/" />
         </>
       )}
     </div>
