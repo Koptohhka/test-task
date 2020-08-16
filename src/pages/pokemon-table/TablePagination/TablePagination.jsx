@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import './TablePagination.scss';
-import { setCurrentPage, setPaginationIndex } from '../../redux/ducks/pokemon-table';
-import { CARDS_PER_PAGE, PAGINATION_NUMBER_PER_PAGE } from '../../utils/constants';
+import { setCurrentPage, setPaginationIndex } from '../../../redux/ducks/pokemon-table';
+import { CARDS_PER_PAGE, PAGINATION_NUMBER_PER_PAGE } from '../../../utils/constants';
 
 const TablePagination = (props) => {
   const {
@@ -12,7 +12,7 @@ const TablePagination = (props) => {
     paginationIndex,
     setPaginationIndex,
   } = props;
-  const [paginationItemsNumber] = useState(data.length / CARDS_PER_PAGE);
+  const paginationItemsNumber = data.length / CARDS_PER_PAGE;
 
   const renderPaginationItems = () => {
     const start = paginationIndex;

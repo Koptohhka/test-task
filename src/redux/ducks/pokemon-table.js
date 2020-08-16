@@ -36,9 +36,7 @@ const fetchData = (endPoint) => (
           data: data.data.cards,
         },
       );
-    } else {
-      dispatch(setErrorState());
-    }
+    } else dispatch(setErrorState());
   }
 );
 
@@ -69,4 +67,5 @@ const pokemonTableReducer = (state = initialState, action) => {
 export default pokemonTableReducer;
 export {
   fetchData, setCurrentPage, setPaginationIndex, removeData,
+  initialState,
 };

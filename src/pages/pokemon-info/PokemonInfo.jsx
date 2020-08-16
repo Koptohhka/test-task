@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import AttackItem from './AttacItem';
-import Loader from '../../components/Loader';
-import RefreshButton from '../../components/RefreshButton';
+import AttackItem from './AttackItem/AttackItem';
+import Loader from '../../components/Loader/Loader';
+import RefreshButton from '../../components/RefreshButton/RefreshButton';
 import './PokemonInfo.scss';
 
 const PokemonInfo = (props) => {

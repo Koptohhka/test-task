@@ -1,5 +1,5 @@
 import React from 'react';
-import './AttacItem.scss';
+import './AttackItem.scss';
 
 const AttackItem = (props) => {
   const {

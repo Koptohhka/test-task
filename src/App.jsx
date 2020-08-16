@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PokemonTable from './pages/pokemon-table/PokemonTable';
 import PokemonInfo from './pages/pokemon-info/PokemonInfo';
-import ErrorScreen from './components/ErrorScreen';
+import ErrorScreen from './components/ErrorScreen/ErrorScreen';
 import './App.scss';
 
 const App = (props) => (

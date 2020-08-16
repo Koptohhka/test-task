@@ -23,6 +23,7 @@ module.exports = {
         "react"
     ],
     "rules": {
+        "import/no-extraneous-dependencies": "off",
         "global-require": "off",
         "react/destructuring-assignment": "off",
         "jsx-a11y/no-noninteractive-element-to-interactive-role": "off",

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchData, removeData } from '../../redux/ducks/pokemon-table';
-import TableItem from './TableItem';
-import TablePagination from './TablePagination';
-import RefreshButton from '../../components/RefreshButton';
-import Loader from '../../components/Loader';
+import TableItem from './TableItem/TableItem';
+import TablePagination from './TablePagination/TablePagination';
+import RefreshButton from '../../components/RefreshButton/RefreshButton';
+import Loader from '../../components/Loader/Loader';
 import { CARDS_PER_PAGE } from '../../utils/constants';
 import './PokemonTable.scss';
 

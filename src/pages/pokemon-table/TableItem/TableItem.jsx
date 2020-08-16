@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchPokemonData, removeActivePokemonData } from '../../redux/ducks/pokemon-info';
+import { fetchPokemonData, removeActivePokemonData } from '../../../redux/ducks/pokemon-info';
 import './TableItem.scss';
 
 const TableItem = (props) => {
@@ -37,7 +37,7 @@ const TableItem = (props) => {
       <img
         onLoad={onLoadImageHandler}
         className="table-item__image"
-        src={isLoaded ? imageUrl : (require('../../assets/images/pokeball.png'))}
+        src={isLoaded ? imageUrl : (require('../../../assets/images/pokeball.png'))}
         alt={name}
       />
     </div>

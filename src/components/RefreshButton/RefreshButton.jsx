@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchData, removeData } from '../redux/ducks/pokemon-table';
-import { getRandomPageNumber } from '../utils/utils';
+import { fetchData, removeData } from '../../redux/ducks/pokemon-table';
+import { getRandomPageNumber } from '../../utils/utils';
 import './RefreshButton.scss';
 
 const RefreshButton = (props) => {
